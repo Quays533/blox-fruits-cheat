@@ -1,0 +1,45 @@
+-- Загружаем красивую библиотеку интерфейса
+local Fluent = loadstring(game:HttpGet("https://github.com"))()
+
+-- Создаем главное окно чита
+local Window = Fluent:CreateWindow({
+    Title = "My First Blox Fruits Cheat",
+    SubTitle = "by Delta Developer",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = true, -- Размытие заднего фона (очень красиво)
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl -- Меню закроется/откроется на левый Ctrl
+})
+
+-- Создаем вкладку для фарма
+local Tabs = {
+    Main = Window:AddTab({ Title = "Главная", Icon = "home" })
+}
+
+-- Добавляем кнопку-переключатель (Тумблер)
+local Toggle = Tabs.Main:AddToggle("AutoFarmToggle", {Title = "Авто-Фарм Уровня", Default = false })
+
+-- Сюда мы потом встроим логику самого фарма
+Toggle:OnChanged(function()
+    if Toggle.Value == true then
+        Fluent:Notify({
+            Title = "Чит Активирован",
+            Content = "Авто-фарм успешно включен!",
+            Duration = 5
+        })
+    else
+        Fluent:Notify({
+            Title = "Чит Выключен",
+            Content = "Авто-фарм остановлен.",
+            Duration = 5
+        })
+    end
+end)
+
+-- Уведомление о том, что скрипт успешно запустился
+Fluent:Notify({
+    Title = "Delta Script",
+    Content = "Скрипт успешно загружен! Приятной игры!",
+    Duration = 5
+})
