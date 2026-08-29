@@ -1,6 +1,7 @@
 -- Загружаем красивую библиотеку интерфейса
 local Fluent = loadstring(game:HttpGet("https://github.com"))()
 
+
 -- Создаем главное окно чита
 local Window = Fluent:CreateWindow({
     Title = "My First Blox Fruits Cheat",
